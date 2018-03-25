@@ -1,4 +1,3 @@
-
 def insert_data(max_size):
     print ("Please insert some bits (max "+str(max_size)+")")
     text = []

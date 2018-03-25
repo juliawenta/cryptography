@@ -1,6 +1,12 @@
 import unittest
+
 import sys
-from SDES import *
+import os.path
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from src.SDES import *
+
 
 class SDESTest(unittest.TestCase):
     
