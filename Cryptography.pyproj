@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d08e81dd-0601-483b-95a5-c7d8116227fd}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>labs\lab01.py</StartupFile>
+    <StartupFile>labs\lab03.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -23,11 +23,20 @@
   <ItemGroup>
     <Compile Include="labs\lab02.py" />
     <Compile Include="labs\lab01.py" />
+    <Compile Include="labs\lab03.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="labs\__init__.py" />
+    <Compile Include="src\AES.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\io_module.py" />
     <Compile Include="src\SDES.py" />
     <Compile Include="src\vigenereCipher.py" />
     <Compile Include="src\__init__.py" />
+    <Compile Include="test\AESTest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="test\SDESTest.py" />
     <Compile Include="test\vigenereCipherTest.py" />
     <Compile Include="__init__.py" />
