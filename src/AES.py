@@ -49,3 +49,39 @@ def Sbox_e(input):
         output = ['0','1','1','1']
     return output
     
+
+def Sbox_d(input):
+    output = []
+    if input == ['0','0','0','0']:
+        output = ['1','1','1','0']
+    elif input == ['0','0','0','1']:
+        output = ['0','0','1','1']
+    elif input == ['0','0','1','0']:
+        output = ['0','1','0','0']
+    elif input == ['0','0','1','1']:
+        output = ['1','0','0','0']
+    elif input == ['0','1','0','0']:
+        output = ['0','0','0','1']
+    elif input == ['0','1','0','1']:
+        output = ['1','1','0','0']
+    elif input == ['0','1','1','0']:
+        output = ['1','0','1','0']
+    elif input == ['0','1','1','1']:
+        output = ['1','1','1','1'] 
+    elif input == ['1','0','0','0']:
+        output = ['0','1','1','1']
+    elif input == ['1','0','0','1']:
+        output = ['1','1','0','1']
+    elif input == ['1','0','1','0']:
+        output = ['1','0','0','1']
+    elif input == ['1','0','1','1']:
+        output = ['0','1','1','0']
+    elif input == ['1','1','0','0']:
+        output = ['1','0','1','1']
+    elif input == ['1','1','0','1']:
+        output = ['0','0','1','0']
+    elif input == ['1','1','1','0']:
+        output = ['0','0','0','0']
+    elif input == ['1','1','1','1']:
+        output = ['0','1','0','1']
+    return output
