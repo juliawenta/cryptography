@@ -11,6 +11,11 @@ def task1():
     print("First: ",text_1)
     text_2 = insert_data(4)
     print("Second: ",text_2)
+    res1 = binary_dot_operation(text_1,text_2)
+    xs = string_array_to_int_array(res1)
+    res2 = binary_division_operation(xs,[1,0,0,1,1,0,0])
+    #result = int_to_string(res2)
+    print(res2)
 
 
 def task2():
@@ -129,4 +134,4 @@ def task2():
 
 
 #task1();
-task2();
+task1();
