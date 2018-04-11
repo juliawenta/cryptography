@@ -7,3 +7,5 @@ Experimental Python projects
   * [x] Vigenere Cipher
   * [x] S-DES
   * [ ] Mini-AES
+  * [ ] Prime numbers - Lucas' test 
+  
