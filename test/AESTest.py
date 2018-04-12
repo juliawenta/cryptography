@@ -34,6 +34,16 @@ class AESTest(unittest.TestCase):
         expected = [1,0,1,0]
         result = binary_division_operation(a,b)
         self.assertEqual(result,expected)
+        
+    def test_binary_division_operation_3(self):       
+        text_1= ['1','1','1','0']
+        text_2= ['0','1','0','1'] 
+        res1 = binary_dot_operation(text_1,text_2)
+        xs = string_array_to_int_array(res1)
+        result = binary_division_operation(xs,[1,0,0,1,1,0,0])
+        expected = [0,0,1,1]
+        self.assertEqual(result,expected)
+
 
     def test_fill(self):
         a =  [1,1,0,1]
