@@ -6,6 +6,6 @@ Experimental Python projects
 * Algorithm
   * [x] Vigenere Cipher
   * [x] S-DES
-  * [ ] Mini-AES
+  * [x] Mini-AES
   * [ ] Prime numbers - Lucas' test 
   
