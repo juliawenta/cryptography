@@ -12,7 +12,37 @@ class AESTest(unittest.TestCase):
         a = 4
         modulo = 7
         expected = 1
+        print("cos")
         result = power_modulo(rev_binary,a,modulo)
+        self.assertEqual(result,expected)
+        
+    def test_found_d(self):
+        res = 5148
+        expected = 1287
+        result = found_d(res)
+        self.assertEqual(result,expected)
+
+
+    def test_check_d(self):
+        res = 39
+        expected = 7
+        result = check_d(res)
+        self.assertEqual(result,expected)
+
+    def test_find_dividers(self):
+        d = 39
+        y = 7
+        expected = (8,5)
+        result = find_dividers(d,y)
+        self.assertEqual(result,expected)
+
+
+    def test_find_primes(self):
+        d = 39
+        y = 7
+        primers = []
+        expected = [2,3,13]
+        result = find_primes(d,y,primers)
         self.assertEqual(result,expected)
 
 
