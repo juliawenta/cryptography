@@ -1,5 +1,26 @@
 import math
 
+#method to remove duplicates from array
+def remove_duplicates(values):
+    output = []
+    seen = set()
+    for value in values:
+        # If value has not been encountered yet,
+        # ... add it to both list and set.
+        if value not in seen:
+            output.append(value)
+            seen.add(value)
+    return output
+
+#method to check if number is prime 
+def is_prime(n):
+    if n % 2 == 0 and n > 2: 
+        return False
+    for i in range(3, int(math.sqrt(n)) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
 #method to change decimal number to binary
 def get_binary(x):
     x = "{0:b}".format(int(x))
@@ -31,9 +52,22 @@ def fast_exponentation_modulo():
     b = input()
     print("\t Insert modulo please:")
     modulo = input()
-
     bb = get_binary(b) #change exp to binary
+    binary = []
+    for i in bb:
+        if i == '0':
+            binary.append(0)
+        else:
+            binary.append(1)
+  
+    rev_binary = binary[::-1] #reverse
+    result = power_modulo(rev_binary,a,modulo)
+    print("\n The result is: ",result)
 
+    return result
+
+def real_fast_exponentation_modulo(a,b,modulo):    
+    bb = get_binary(b) #change exp to binary
     binary = []
     for i in bb:
         if i == '0':
@@ -44,71 +78,125 @@ def fast_exponentation_modulo():
     rev_binary = binary[::-1] #reverse
 
     result = power_modulo(rev_binary,a,modulo)
-    print("\n The result is: ",result)
 
     return result
 
+
 #   Found d in:
 #   a = (2^k)*d
+'''
 def found_d(result):
-    #result = input()
     while True:
         modulo = result%2
         if modulo == 1:
             break
         result = result/2
+        print("d",result)
     return result
+'''
+def found_d(number):
+    tab=[]
+
+    while number % 2 == 0:
+        number = number/2
+    tab.append(number)
+    
+ 
+    return tab[0] 
+
 
 def find_dividers(d,x):
     is_true = True
+    
     while is_true:
         yy = pow(x,2)
-        print("yy",yy)
         y = yy-d
-        if y > 0 and math.floor(math.sqrt(y)) == math.sqrt(y):
+        if y >= 0 and math.floor(math.sqrt(y)) == math.sqrt(y):
+            
             return (x,math.sqrt(y))
         else:
             x = x + 1
+            
             is_true = x<(d+1)/2
-
-
-
+    
+        
 def find_primes(d,y,primes):
     dividers = find_dividers(d,y)
-    print (dividers)
-    if dividers is []:
-        #if len(dividers) == 1:
-         #   primes.append(dividers[0])
-        return primes
-    sum = dividers[0::1]
-    print(sum)
     
-    diff = math.fabs(dividers[0]-dividers[1])
-    print(diff)
-    if diff == 1:
+    if dividers is None:
         return []
-    p1 = find_primes(sum,y,primes)
-    p2 = find_primes(diff,y,primes)
-    if p1.size == 2:
-        primes.append(p1[0])
-        primes.append(p1[1])
-    if p2.size == 2:
-        primes.append(p2[0])
-        primes.append(p2[1])
-    
+    sum = dividers[0]+dividers[1]
+        
+    diff = math.fabs(dividers[0]-dividers[1])
+  
+    if is_prime(diff):
+        primes.append(diff)
+    else:
+        p1 = find_primes(diff,check_d(diff),primes)
+
+    if is_prime(sum):
+        primes.append(sum)
+    else:
+        p2 = find_primes(sum,check_d(sum),primes)
+        
+    if 1 in primes:
+        primes.remove(1)
+
     return primes
 
-def fermat_algorithm():
-    d = found_d(78)
+def fermat_algorithm(x):
+
+    d = found_d(x)
     y = check_d(d)
     primes = []
     primes = find_primes(d,y,primes)
-    return d
+    two_multiplication = int(math.log((x/d), 2))
+    for i in range(0, two_multiplication):
+        primes.append(2)
+    primes_no_duplicates = remove_duplicates(primes)
+    print("Primes: ",primes_no_duplicates)
+    fold=[]
+    for p in primes_no_duplicates:
+        fold.append(primes.count(p))
+    print("Folds: ",fold)
+    return primes
+
+
+def fermat_algorithm_2(x):
+
+    d = found_d(x)
+    y = check_d(d)
+    primes = []
+    primes = find_primes(d,y,primes)
+    two_multiplication = int(math.log((x/d), 2))
+    for i in range(0, two_multiplication):
+        primes.append(2)
+    primes_no_duplicates = remove_duplicates(primes)
+    
+    fold=[]
+    for p in primes_no_duplicates:
+        fold.append(primes.count(p))
+    return primes
 
 def check_d(d):
     d_sqrt = math.sqrt(d)
     d_sqrt_floor  = math.floor(d_sqrt)
+    
     if d_sqrt_floor == d_sqrt:
-        return d_sqrt_floor
+        return d_sqrt
     else:
         return d_sqrt_floor + 1
+
+def lucas_test(n,q):
+
+    fermat = fermat_algorithm_2(n-1) 
+    is_prime = True
+    for f in fermat:
+        power = (n-1)/f
+        print("The power is: ",power)
+        x = real_fast_exponentation_modulo(q,power,n) #x is a value of modulo
+        if x == 1: 
+            is_prime = False
+        print("X",x)
+ 
+    return is_prime

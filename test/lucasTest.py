@@ -41,8 +41,22 @@ class AESTest(unittest.TestCase):
         d = 39
         y = 7
         primers = []
-        expected = [2,3,13]
+        expected = [3,13]
         result = find_primes(d,y,primers)
+        self.assertEqual(result,expected)
+
+    def test_find_primes_2(self):
+        d = 1287
+        y = 36
+        primers = []
+        expected = [3,11,3,13]
+        result = find_primes(d,y,primers)
+        self.assertEqual(result,expected)
+
+    def test_fermat_algorithm(self):
+        number = 5148
+        expected = [3,11,3,13,2,2]
+        result = fermat_algorithm(number)
         self.assertEqual(result,expected)
 
 
