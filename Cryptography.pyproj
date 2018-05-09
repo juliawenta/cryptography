@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d08e81dd-0601-483b-95a5-c7d8116227fd}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>labs\lab04.py</StartupFile>
+    <StartupFile>labs\lab05.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -29,6 +29,9 @@
     <Compile Include="labs\lab04.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="labs\lab05.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="labs\__init__.py" />
     <Compile Include="src\AES.py">
       <SubType>Code</SubType>
@@ -40,6 +43,9 @@
     <Compile Include="src\lucas.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\RSA.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\SDES.py" />
     <Compile Include="src\vigenereCipher.py" />
     <Compile Include="src\__init__.py" />
@@ -47,6 +53,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test\lucasTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\RSATest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test\SDESTest.py" />
