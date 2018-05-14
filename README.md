@@ -8,4 +8,5 @@ Experimental Python projects
   * [x] S-DES
   * [x] Mini-AES
   * [x] Prime numbers - Lucas' test 
-  * [ ] RSA 
+  * [x] RSA 
+  * [ ] ElGamal
