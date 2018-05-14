@@ -84,16 +84,7 @@ def real_fast_exponentation_modulo(a,b,modulo):
 
 #   Found d in:
 #   a = (2^k)*d
-'''
-def found_d(result):
-    while True:
-        modulo = result%2
-        if modulo == 1:
-            break
-        result = result/2
-        print("d",result)
-    return result
-'''
+
 def found_d(number):
     tab=[]
 

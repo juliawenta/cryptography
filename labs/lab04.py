@@ -28,6 +28,7 @@ def task3():
         print("The test does not determine if the", n , "is prime.")
 
     return result
-#task1()
+
+task1()
 task2()
 task3()
