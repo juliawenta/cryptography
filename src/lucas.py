@@ -66,6 +66,22 @@ def fast_exponentation_modulo():
 
     return result
 
+
+def fast_exponentation_modulo_2(a,b,modulo):
+    bb = get_binary(b) #change exp to binary
+    binary = []
+    for i in bb:
+        if i == '0':
+            binary.append(0)
+        else:
+            binary.append(1)
+  
+    rev_binary = binary[::-1] #reverse
+    result = power_modulo(rev_binary,a,modulo)
+ 
+
+    return result
+
 def real_fast_exponentation_modulo(a,b,modulo):    
     bb = get_binary(b) #change exp to binary
     binary = []

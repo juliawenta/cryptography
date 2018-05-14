@@ -47,4 +47,8 @@ def euclid(a, b):
     return a, x, y
 
 
-
+def modular_inverse(a, m):
+    q, x, y = euclid(a, m)
+    if q != 1:
+        raise Exception('No modular inverse')
+    return x%m

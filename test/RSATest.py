@@ -11,6 +11,11 @@ class AESTest(unittest.TestCase):
         expected = [2,3]
         result = sieve(4)
         self.assertEqual(result,expected)
+
+    def test_sieve_2(self):
+        expected = [2,3,5,7,9]
+        result = sieve(10)
+        self.assertEqual(result,expected)
  
     def test_euclid(self):
         expected = (90,3,-25)
