@@ -1,5 +1,5 @@
 # cryptography
-Experimental Python projects
+7 experimental Python projects
 
 ### FEATURES
 
@@ -9,4 +9,5 @@ Experimental Python projects
   * [x] Mini-AES
   * [x] Prime numbers - Lucas' test 
   * [x] RSA 
-  * [ ] ElGamal
+  * [x] ElGamal
+  * [ ] 
