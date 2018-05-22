@@ -7,12 +7,18 @@ from src.ElGamal import *
 
 class AESTest(unittest.TestCase):
     
-    def test_name(self):
-        x=1
-        expected = 1
-        result = name(x)
+    def test_find_primitives(self):
+        x=257
+        expected = 3
+        result = find_primitives(x)
         self.assertEqual(result,expected)
-
+    
+    def test_find_primitives(self):
+        x=827
+        expected = 2
+        result = find_primitives(x)
+        self.assertEqual(result,expected)
+    
 
 if __name__ == '__main__':
     unittest.main()

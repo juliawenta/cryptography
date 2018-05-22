@@ -10,6 +10,9 @@ def task1():
     number = int(input("Insert index of prime number you would like to see: \n"))
     primes = sieve(number*16)
     print ("\t Result: ",primes[number-1],"\n")
+    number2 = int(input("Insert index of prime number you would like to see: \n"))
+    primes2 = sieve(number2*16)
+    print ("\t Result: ",primes2[number2-1],"\n")
     return primes
 
 def task2():
@@ -38,7 +41,7 @@ def task3():
     
     e = int(input("Enter e: \n"))
     euc = euclid(e,m)
-    print("euc: ",euc)
+    #print("euc: ",euc)
 
     x=euc[1]
     print("x: ",x)
@@ -66,10 +69,8 @@ def task3():
 
 
 
-'''
 task1()
 print("\n")
 task2()
 print("\n")
-'''
 task3()

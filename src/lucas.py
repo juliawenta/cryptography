@@ -166,7 +166,7 @@ def fermat_algorithm(x):
     for p in primes_no_duplicates:
         fold.append(primes.count(p))
     print("Folds: ",fold)
-    return primes
+    return primes_no_duplicates
 
 
 def fermat_algorithm_2(x):
