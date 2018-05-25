@@ -18,8 +18,8 @@ def find_primitives(n):
     
         for p in ps:
             # Check if r^((n-1)/p) mod n is 1 or not:
-         
-            if pow(r, int((n-1)/p)) % n == 1:
+            if real_fast_exponentation_modulo(r, int((n-1)/p),n) == 1:            
+            #if pow(r, int((n-1)/p)) % n == 1:
                 flag = False
                   
         if flag:
@@ -33,7 +33,7 @@ def generate_k(n):
     
 #method to generate public and private key
 def generate_keys(r,k,n):
-    a = pow(r,k,n)
+    a = real_fast_exponentation_modulo(r,k,n)
     public_key = [n,r,a]
     print("Public key: ", public_key)
     private_key = [n,r,a,k]
@@ -42,6 +42,8 @@ def generate_keys(r,k,n):
 
 #method to make a cipher
 def cipher(j,t,r,n,a):
-    c_1=pow(r,j,n)
-    c_2=t*a**j %n
-    print("Cipher ",c_1,"," ,c_2)
+    c_1=real_fast_exponentation_modulo(r,j,n)
+    c_2a = real_fast_exponentation_modulo(a,j,n)
+    c_2 = c_2a *t % n
+    #c_2=t*a**j %n
+    print("Cipher: (",c_1,"," ,c_2,")")
