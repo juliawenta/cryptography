@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d08e81dd-0601-483b-95a5-c7d8116227fd}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>labs\lab06.py</StartupFile>
+    <StartupFile>src\DSS.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -35,11 +35,17 @@
     <Compile Include="labs\lab06.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="labs\lab07.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="labs\__init__.py" />
     <Compile Include="src\AES.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\convert_module.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\DSS.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\ElGamal.py">
@@ -56,6 +62,9 @@
     <Compile Include="src\vigenereCipher.py" />
     <Compile Include="src\__init__.py" />
     <Compile Include="test\AESTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\DSSTest.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test\ElGamalTest.py">
