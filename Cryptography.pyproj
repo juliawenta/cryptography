@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d08e81dd-0601-483b-95a5-c7d8116227fd}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>src\DSS.py</StartupFile>
+    <StartupFile>labs\lab07.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>

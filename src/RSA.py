@@ -43,7 +43,7 @@ def euclid(a, b):
         x = i
         y = j
 
-    print("d: ", a , "x: " , x , "y: " , y)
+    #print("d: ", a , "x: " , x , "y: " , y)
     return a, x, y
 
 
@@ -52,3 +52,4 @@ def modular_inverse(a, m):
     if q != 1:
         raise Exception('No modular inverse')
     return x%m
+

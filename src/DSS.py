@@ -1,6 +1,7 @@
 import unittest
 import sys
 import os.path
+import hashlib
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from src.lucas import *
 from resources import *
@@ -11,9 +12,9 @@ from src.ElGamal import *
 project_path = os.path.abspath(os.path.dirname(__file__))
 
 
-def count_vowels():
+def count_vowels(name):
     #path = os.path.join(project_path, "../resources/long_text.txt")
-    path = os.path.join(project_path, "../resources/short_text_4.txt")
+    path = os.path.join(project_path, name)
     string = readFile(path)
     vowels = 0
     for s in string:
@@ -22,9 +23,8 @@ def count_vowels():
     print("Number of vowels: ",vowels)
     return vowels
 
-def count_consonants():
-    #path = os.path.join(project_path, "../resources/long_text.txt")
-    path = os.path.join(project_path, "../resources/short_text_4.txt")
+def count_consonants(name):
+    path = os.path.join(project_path, name)
     string = readFile(path)
     consonants = 0
     for i in string:
@@ -33,9 +33,8 @@ def count_consonants():
     print("Number of consonants: ",consonants)
     return consonants
 
-def count_spaces():
-    #path = os.path.join(project_path, "../resources/long_text.txt")
-    path = os.path.join(project_path, "../resources/short_text_4.txt")
+def count_spaces(name):
+    path = os.path.join(project_path, name)
     text = readFile(path)
     counter = 0
     for t in text:
@@ -44,45 +43,47 @@ def count_spaces():
     print("Number of spaces: ",counter)
     return counter
 
-def JHA():
-    n1 = count_vowels()
-    n2 = count_consonants()
-    SP = count_spaces()
+def JHA(name):
+    n1 = count_vowels(name)
+    n2 = count_consonants(name)
+    SP = count_spaces(name)
     exponent = (7 * n1) - (3*n2) + pow(SP,2)
     p = int(input("Insert p please: "))
     dividers = fermat_algorithm_2(p-1)
     q = max(dividers) #find the biggest prime divider max()
-    print("exp: ",exponent)
-    jha = fast_exponentation_modulo_2(q,exponent,p)
-    print("jha: ",jha)
+    if exponent <0:
+        x = modular_inverse(q,p)
+        exponent = abs(exponent)
+        jha = fast_exponentation_modulo_2(x,exponent,p)
+    else:
+        jha = fast_exponentation_modulo_2(q,exponent,p)
+    print("JHA(m,p,q): ",jha)
     return jha
 
+def DSS(name):
 
-def DSS():
     #I stage:
     p = int(input("Insert p please:     "))
-    dividers = fermat_algorithm_2(p-1)
-    q = max(dividers) #find the biggest prime divider max()
+    dividers = fermat_algorithm_2(p-1) #from lucas
+    q = int(max(dividers)) #find the biggest prime divider max()
     g =int(input("Please insert g:     "))
     while real_fast_exponentation_modulo(g, q,p) != 1:
         g =int(input("Wrong g! please insert it again:     "))
     k =int(input("Please insert k:     "))
     while k>q:
        k =int(input("Wrong k! please insert it again:     "))
-    public_key = real_fast_exponentation_modulo(g, k,p)
+    public_key = real_fast_exponentation_modulo(g, k,p) #from lucas
     prk = [public_key,g,p,q]
     print("PRK: ",prk)
+
     #II stage:
     r =int(input("Please insert r:     "))
-    while r>k:
+    while r>q:
        r =int(input("Wrong r! please insert it again:     "))
     x = public_key % q
-    y = (pow(r,-1) * (m + (k*x))) % q 
-
-
-
-
-DSS()
-#count_vowels()
-#count_consonants()
-#count_spaces()
+    path = os.path.join(project_path, name)
+    m = JHA(name)
+    r_rev = modular_inverse(r, q)
+    y = r_rev * (m + (k*x)) % q
+    s = [x,int(y)]
+    print("Siganture: ",s)

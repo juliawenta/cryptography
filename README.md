@@ -10,4 +10,4 @@
   * [x] Prime numbers - Lucas' test 
   * [x] RSA 
   * [x] ElGamal
-  * [ ] Shortcut functions and digital signatures
+  * [x] Shortcut functions and digital signatures
